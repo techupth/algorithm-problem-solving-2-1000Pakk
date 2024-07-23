@@ -35,3 +35,4 @@ let searchTitle = "Gone with the Wind";
 let result = findBookIndex(books, searchTitle);
 
 console.log(result);
+// BigO = O(log N)
