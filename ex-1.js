@@ -26,3 +26,4 @@ let searchStudent = "Bob";
 let result = findStudentIndex(students, searchStudent);
 
 console.log(result);
+// BigO = O(log N)
