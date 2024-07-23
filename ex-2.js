@@ -1,15 +1,26 @@
 function findBookIndex(books, searchTitle) {
   // เริ่มเขียนโค้ดตรงนี้จ้า
-  for (let i in books) {
-    if (books[i].title === searchTitle) {
-      return i;
+  let left = 0;
+  let right = books.length - 1;
+  let index = -1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (books[mid].title === searchTitle) {
+      index = mid;
+      break;
+    } else if (books[mid].title < searchTitle) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
     }
   }
-  return -1;
+
+  return index;
 }
 
 // ตอบคำถามตรงนี้จ้า
-books = [
+let books = [
   { title: "A Tale of Two Cities", author: "Charles Dickens" },
   { title: "Brave New World", author: "Aldous Huxley" },
   { title: "Catch-22", author: "Joseph Heller" },
@@ -19,7 +30,7 @@ books = [
   { title: "Gone with the Wind", author: "Margaret Mitchell" },
   { title: "Harry Potter", author: "J.K. Rowling" },
 ];
-searchTitle = "Gone with the Wind";
+let searchTitle = "Gone with the Wind";
 
 let result = findBookIndex(books, searchTitle);
 
